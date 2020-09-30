@@ -7,9 +7,23 @@ namespace Bedienungshilfe
     {
         static void Main(string[] args)
         {
+
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
             Console.Clear();
+
+            InputUI _username = new InputUI();
+            _username.Text = "Username";
+            _username.Show();
+            Console.WriteLine(_username.value);
+            Console.ReadKey(true);
+
+            InputUI _password = new InputUI();
+            _password.Text = "Password";
+            _password.ShowInput = false;
+            _password.Show();
+            Console.WriteLine(_password.value);
+            Console.ReadKey(true);
 
             Menu menu = new Menu("Titel");
 
