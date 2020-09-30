@@ -1,0 +1,28 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{87D51EB5-101D-4213-A8A1-CD8F09E9980C}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="InputUI.cs" Line="48" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Bedienungshilfe" expanded="True">
+            <Node name="Bedienungshilfe" expanded="True">
+              <Node name="InputUI.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Bedienungshilfe PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

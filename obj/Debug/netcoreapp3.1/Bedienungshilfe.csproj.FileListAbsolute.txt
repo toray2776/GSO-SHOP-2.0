@@ -1,0 +1,11 @@
+/Users/leonhornchen/GSO-SHOP-2.0/bin/Debug/netcoreapp3.1/Bedienungshilfe
+/Users/leonhornchen/GSO-SHOP-2.0/bin/Debug/netcoreapp3.1/Bedienungshilfe.deps.json
+/Users/leonhornchen/GSO-SHOP-2.0/bin/Debug/netcoreapp3.1/Bedienungshilfe.runtimeconfig.json
+/Users/leonhornchen/GSO-SHOP-2.0/bin/Debug/netcoreapp3.1/Bedienungshilfe.runtimeconfig.dev.json
+/Users/leonhornchen/GSO-SHOP-2.0/bin/Debug/netcoreapp3.1/Bedienungshilfe.dll
+/Users/leonhornchen/GSO-SHOP-2.0/bin/Debug/netcoreapp3.1/Bedienungshilfe.pdb
+/Users/leonhornchen/GSO-SHOP-2.0/obj/Debug/netcoreapp3.1/Bedienungshilfe.csprojAssemblyReference.cache
+/Users/leonhornchen/GSO-SHOP-2.0/obj/Debug/netcoreapp3.1/Bedienungshilfe.AssemblyInfoInputs.cache
+/Users/leonhornchen/GSO-SHOP-2.0/obj/Debug/netcoreapp3.1/Bedienungshilfe.AssemblyInfo.cs
+/Users/leonhornchen/GSO-SHOP-2.0/obj/Debug/netcoreapp3.1/Bedienungshilfe.dll
+/Users/leonhornchen/GSO-SHOP-2.0/obj/Debug/netcoreapp3.1/Bedienungshilfe.pdb
