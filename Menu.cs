@@ -238,7 +238,7 @@ namespace Bedienungshilfe
                     {
                         break;
                     }
-                    _count += 18 / pageRows;
+                    _count += (Console.WindowHeight - (titlebar.height + 3)) / pageRows;
                 }
 
                 //titlebar
@@ -307,6 +307,7 @@ namespace Bedienungshilfe
         {
             public bool enabled = true;
             public int padding = 2;
+            public int height = 0;
             public int Columns { get; private set; }
             public string[] data { get; set; }
             public Location Location = Location.Bottom;
@@ -317,11 +318,13 @@ namespace Bedienungshilfe
             public Titlebar()
             {
                 ChangeColumn(3);
+                SetHeight();
             }
 
             public Titlebar(int _columns)
             {
                 ChangeColumn(_columns);
+                SetHeight();
             }
 
             public void ChangeColumn(int _number)
@@ -376,6 +379,11 @@ namespace Bedienungshilfe
                     return _check;
                 }
                 return _check.Substring(0, lastColumnWidth - 3) + "...";
+            }
+
+            private void SetHeight()
+            {
+                height = padding * 2 + 1;
             }
         }
     }
