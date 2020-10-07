@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Bedienungshilfe
 {
-    public class InputUI
+    public class UserInput
     {
         public string value { get; private set; } = null;
         public string Text { get; set; } = "Input";
@@ -9,7 +9,7 @@ namespace Bedienungshilfe
         public bool ShowColon { get; set; } = true;
         public bool ShowInput { get; set; } = true;
 
-        public InputUI()
+        public UserInput()
         {
         }
 
@@ -19,7 +19,7 @@ namespace Bedienungshilfe
             int _cursory;
             _cursorx = Console.CursorLeft;
             _cursory = Console.CursorTop;
-
+            Console.CursorVisible = true;
             Console.SetCursorPosition(padding, _cursory + padding);
 
             Console.Write(Text);
@@ -42,6 +42,7 @@ namespace Bedienungshilfe
                     value += _key.KeyChar;
                 }
             }
+            Console.CursorVisible = false;
         }
     }
 }

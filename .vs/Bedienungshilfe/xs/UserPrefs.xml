@@ -1,8 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{87D51EB5-101D-4213-A8A1-CD8F09E9980C}|Default">
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="InputUI.cs" Line="48" Column="1" />
-      <File FileName="Program.cs" Line="14" Column="1" />
+      <File FileName="Program.cs" Line="18" Column="21" />
+      <File FileName="InputUI.cs" Line="7" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

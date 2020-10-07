@@ -12,18 +12,18 @@ namespace Bedienungshilfe
             Console.CursorVisible = false;
             Console.Clear();
 
-            InputUI _username = new InputUI();
+            UserInput _username = new UserInput();
             _username.Text = "Username";
             _username.Show();
-            Console.WriteLine(_username.value);
-            Console.ReadKey(true);
+            //Console.WriteLine(_username.value);
+            //Console.ReadKey(true);
 
-            InputUI _password = new InputUI();
+            UserInput _password = new UserInput();
             _password.Text = "Password";
             _password.ShowInput = false;
             _password.Show();
-            Console.WriteLine(_password.value);
-            Console.ReadKey(true);
+            //Console.WriteLine(_password.value);
+            //Console.ReadKey(true);
 
             Menu menu = new Menu("Titel");
 
