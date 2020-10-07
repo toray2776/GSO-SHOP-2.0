@@ -11,6 +11,7 @@ namespace Bedienungshilfe
 
         public UserInput()
         {
+
         }
 
         public void Show()

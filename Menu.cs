@@ -59,7 +59,6 @@ namespace Bedienungshilfe
         private bool isPrefix = false;
 
         //TODO: - Seperator
-        //      - Mac Fenstergröße ändern
         //      - Doku schreiben
         //      - Max Height Max Width
 
