@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/leonhornchen/GSO-SHOP-2.0/Bedienungshilfe.csproj": {}
+    "C:\\Users\\Andreas.Daehne\\Source\\Repos\\GSO-SHOP-2.0\\Bedienungshilfe.csproj": {}
   },
   "projects": {
-    "/Users/leonhornchen/GSO-SHOP-2.0/Bedienungshilfe.csproj": {
+    "C:\\Users\\Andreas.Daehne\\Source\\Repos\\GSO-SHOP-2.0\\Bedienungshilfe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/leonhornchen/GSO-SHOP-2.0/Bedienungshilfe.csproj",
+        "projectUniqueName": "C:\\Users\\Andreas.Daehne\\Source\\Repos\\GSO-SHOP-2.0\\Bedienungshilfe.csproj",
         "projectName": "Bedienungshilfe",
-        "projectPath": "/Users/leonhornchen/GSO-SHOP-2.0/Bedienungshilfe.csproj",
-        "packagesPath": "/Users/leonhornchen/.nuget/packages/",
-        "outputPath": "/Users/leonhornchen/GSO-SHOP-2.0/obj/",
+        "projectPath": "C:\\Users\\Andreas.Daehne\\Source\\Repos\\GSO-SHOP-2.0\\Bedienungshilfe.csproj",
+        "packagesPath": "C:\\Users\\Andreas.Daehne\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andreas.Daehne\\Source\\Repos\\GSO-SHOP-2.0\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/leonhornchen/.config/NuGet/NuGet.Config"
+          "C:\\Users\\Andreas.Daehne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -10,6 +10,13 @@ namespace Bedienungshilfe
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
 
+            using (var db = new ShopContext())
+            {
+                db.Database.EnsureCreated();
+
+                db.SaveChanges();
+            }
+
             //for testing
             bool loggedin = true;
 
@@ -50,7 +57,6 @@ namespace Bedienungshilfe
             } while (!loggedin);
 
             Menu menu = new Menu("Main Menü");
-            menu.addMenuItem(new string[1][] { new string[]{ "asad", "asd" } });
             menu.addMenuItem("Shop132");
             menu.addMenuItem("Sho123p123");
             menu.addMenuItem("Shop1231132");
