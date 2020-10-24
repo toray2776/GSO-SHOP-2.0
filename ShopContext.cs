@@ -9,6 +9,11 @@ namespace Bedienungshilfe
     public class ShopContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Format> Formats { get; set; }
+        public DbSet<Category> Categories{ get; set; }
+        public DbSet<Author> Authors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
