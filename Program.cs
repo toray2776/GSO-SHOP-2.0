@@ -49,10 +49,10 @@ namespace Bedienungshilfe
 
                 if (!loggedin)
                 {
-                    Alert alert = new Alert();
+                    /*Alert alert = new Alert();
                     alert.Buttons = AlertButtons.Ok;
                     alert.Text = "Der Benutzername oder das Kennwort ist falsch. Bitte überprüfen Sie Ihre eingaben.";
-                    alert.Show();
+                    alert.Show();*/
                 }
             } while (!loggedin);
 
@@ -74,6 +74,7 @@ namespace Bedienungshilfe
             menu.mark = MenuMark.Prefix;
             menu.ShowMenu();
             Console.WriteLine(menu.value);
+            Console.ReadLine();
         }
     }
 }

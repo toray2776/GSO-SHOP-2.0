@@ -14,7 +14,7 @@ namespace Bedienungshilfe
         public DbSet<Format> Formats { get; set; }
         public DbSet<Category> Categories{ get; set; }
         public DbSet<Author> Authors { get; set; }
-        public DbSet<ShoppingCart> Carts { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

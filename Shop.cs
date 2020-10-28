@@ -49,20 +49,6 @@ namespace Bedienungshilfe
             ShoppingCartService shoppingCartService = new ShoppingCartService(shoppingCart);
 
             return shoppingCartService.AddProductToShoppingCart(product, amount);
-
-            ShoppingCartItem shoppingCartItem;
-
-            if (this.ShoppingCartContainsProduct(shoppingCart, product))
-            {
-
-            }
-
-            shoppingCartItem = new ShoppingCartItem();
-            shoppingCartItem.SetAmount(amount);
-            shoppingCartItem.AddProduct(product);
-            shoppingCart.AddShoppingCartItem(shoppingCartItem);
-
-            return true;
         }
     }
 }

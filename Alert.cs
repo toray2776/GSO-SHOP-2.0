@@ -173,7 +173,7 @@ namespace Bedienungshilfe
                     Console.Write(TitleBar);
                     Console.SetCursorPosition(0, i);
                     Console.Write(Outline);
-                    Console.SetCursorPosition(Console.WindowWidth, i);
+                    Console.SetCursorPosition(Console.WindowWidth - 1, i);
                     Console.Write(Outline);
                 }
                 else

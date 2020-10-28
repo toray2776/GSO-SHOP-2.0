@@ -12,5 +12,8 @@ namespace Bedienungshilfe.Entity
         [Column("id")]
         [Key]
         public int id { get; set; }
+
+        [Column("name", TypeName = "varchar(255)")]
+        public string name { get; set; }
     }
 }
