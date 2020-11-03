@@ -1,0 +1,174 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>775</x><y>1410</y><w>310</w><h>370</h></coordinates><panel_attributes>User
+--
++id: Int
++firstName: String
++lastName: String
++userName: String
+-password: HashedString 
+--
++checkPasswort(_passwort: string) : bool
+--
+Responsibilities
+-- Darstellen und Verwalten
+   von Nutzer-Informationen</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>755</x><y>940</y><w>380</w><h>340</h></coordinates><panel_attributes>ShoppingCart
+--
++id: Int
++userId: Int
++shoppingCartItems: Array(shoppingCartItem)
+-purchased: bool
+--
++getShoppingCartItems(ShoppingCartId: int) : Array(shoppingCartItem)
++isPurchased(ShoppingCartId: int) : bool
+
+--
+Responsibilities
+-- Beinhaltet Informationen über ein Shopping Cart</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>915</x><y>1270</y><w>40</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1425</x><y>40</y><w>110</w><h>40</h></coordinates><panel_attributes>lw=2
+Index</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>1090</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>10;10;160;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1285</x><y>940</y><w>380</w><h>340</h></coordinates><panel_attributes>ShoppingCartItem
+--
++amount: Int
++shoppingCartId: Int
++productId: Array(shoppingCartItem)
+
+--
++getShoppingCartItems(ShoppingCartId: int) : Array(shoppingCartItem)
++isPurchased(ShoppingCartId: int) : bool
+
+--
+Responsibilities
+-- Beinhaltet Informationen über ein Shopping Cart Item</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1975</x><y>940</y><w>380</w><h>340</h></coordinates><panel_attributes>Product
+--
++id: Int
++title: String
++EAN: String
++price: float
++releaseDate: Date
++publisherID: Int
++authorID: Int
++formatID: Int
++categoryID: Int
+--
+
+--
+Responsibilities
+-- Verwaltung von Informationen eines Produktes</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1655</x><y>1090</y><w>340</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+
+m2=1
+</panel_attributes><additional_attributes>320;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2535</x><y>700</y><w>380</w><h>140</h></coordinates><panel_attributes>Author
+--
++id: Int
++fullName: String
+--
+#getProducts(author_ID: int) : Array(Products)
+
+--
+Responsibilities
+-- Verwaltung von Informationen eines Authors</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2535</x><y>890</y><w>380</w><h>150</h></coordinates><panel_attributes>Publisher
+--
++id: Int
++fullName: String
+--
+#getProducts(publisher_ID: int) : Array(Products)
+
+--
+Responsibilities
+-- Verwaltung von Informationen eines Publishers</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2535</x><y>1090</y><w>380</w><h>150</h></coordinates><panel_attributes>Category
+--
++id: Int
++Name: String
+--
+#getCategoryName(IdCategory : int) : string
+
+--
+Responsibilities
+-- Kategorie verwalten</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2545</x><y>1280</y><w>380</w><h>150</h></coordinates><panel_attributes>Format
+--
++id: Int
++Name: String
+--
+#getFormatName(IdFormat : int) : string
+
+--
+Responsibilities
+-- Format verwalten</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>75</x><y>300</y><w>2890</w><h>1520</h></coordinates><panel_attributes>UserAccess
+--
+
+--
+#logIn(username:string, password:string) : User
+#logout(user:User): void
+
+--
+Responsibilities
+-- Regelt login und logout eines Users</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1285</x><y>120</y><w>380</w><h>150</h></coordinates><panel_attributes>LogInArea
+--
+
+--
+#show(): void
+
+--
+Responsibilities
+-- Zeigt das Login-Formular
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1285</x><y>420</y><w>380</w><h>150</h></coordinates><panel_attributes>Dashboard
+--
+-user : User
+--
+#show(): void
+
+--
+Responsibilities
+-- Zeigt das Menü</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1285</x><y>660</y><w>380</w><h>150</h></coordinates><panel_attributes>Shop
+--
+-user : User
+--
+#showProducts(): void
+#addProductToShoppingCart(): bool
+--
+Responsibilities
+-- Verantwortlich, alle Produkte anzuzeigen und den User zu fragen,
+ob er eines in den Warenkorb legen möchte</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>175</x><y>910</y><w>380</w><h>150</h></coordinates><panel_attributes>ShoppingCartView
+--
+-shoppingCart : ShoppingCart
+--
+#showShoppingCardItems(): void
+--
+Responsibilities
+-- Verantwortlich um das Shopping Cart beziehungsweise die darin
+enthaltenen Produkte und deren Anzahl darzustellen</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>175</x><y>1100</y><w>380</w><h>150</h></coordinates><panel_attributes>ShoppingCartService
+--
+-shoppingCart : ShoppingCart
+--
+#addProductToShoppingCart(Product product): bool
+#dropProductFromShoppingCart(Product product): bool
+#buy() : bool
+--
+Responsibilities
+-- Verantwortlich um Operationen mit dem ShoppingCart des Users
+auszuführen</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1655</x><y>730</y><w>550</w><h>230</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>10;10;520;10;520;210</additional_attributes></element><element><id>Relation</id><coordinates><x>1655</x><y>1090</y><w>340</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+
+m2=1
+</panel_attributes><additional_attributes>320;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>545</x><y>950</y><w>230</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+
+m2=1
+</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>545</x><y>1150</y><w>230</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+
+m2=1
+</panel_attributes><additional_attributes>210;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1125</x><y>1090</y><w>180</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>10;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2345</x><y>760</y><w>210</w><h>200</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>190;10;10;180</additional_attributes></element><element><id>Relation</id><coordinates><x>2345</x><y>940</y><w>210</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>190;10;10;100</additional_attributes></element><element><id>Relation</id><coordinates><x>2345</x><y>1190</y><w>220</w><h>170</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>200;150;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2345</x><y>1110</y><w>210</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=n</panel_attributes><additional_attributes>190;30;10;10</additional_attributes></element></diagram>
