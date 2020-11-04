@@ -3,33 +3,109 @@ using Bedienungshilfe.Repository;
 using SQLitePCL;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Bedienungshilfe
 {
     class Shop
     {
-        public void ShowAllProducts()
-        {
-            List<Product> products = this.GetAllProducts();
+        private User user;
+        private ShoppingCartContext shoppingCartContext;
 
-            foreach(Product product in products)
-            {
-                this.PrintProduct(product);
-            }
+        public Shop(User user)
+        {
+            this.user = user;
+            this.shoppingCartContext = new ShoppingCartContext();
         }
 
-        private void PrintProduct(Product product)
+        public void ShowAllProducts()
         {
-            Console.WriteLine(String.Format("{0, -20}: {1}", "Produkt Id", product.id));
-            Console.WriteLine(String.Format("{0, -20}: {1}", "Titel", product.title));
-            Console.WriteLine(String.Format("{0, -20}: {1}", "Category", product.category.name));
-            Console.WriteLine(String.Format("{0, -20}: {1}", "Format", product.format.name));
-            Console.WriteLine(String.Format("{0, -20}: {1}", "Autor", product.author.name));
-            Console.WriteLine(String.Format("{0, -20}: {1}", "EAN", product.ean));
-            Console.WriteLine(String.Format("{0, -20}: {1}", "Publisher", product.publisher.name));
-            Console.WriteLine(String.Format("{0, -20}: {1}", "Preis", product.price));
-            Console.WriteLine();
+            do
+            {
+                Console.Clear();
+
+                Menu productsMenu = new Menu("Produkte Menü", this.user);
+
+                List<Product> products = this.GetAllProducts();
+
+                foreach (Product product in products)
+                {
+                    productsMenu.addMenuItem(product.title);
+                }
+
+                productsMenu.addMenuItem("Zurück");
+                productsMenu.MenuText = "Das ist der Produkt Text";
+                productsMenu.Prefix = "-";
+                productsMenu.WhiteSpaceBeforePrefix = true;
+                productsMenu.mark = MenuMark.Prefix;
+                productsMenu.ShowMenu();
+                if (productsMenu.value == "Zurück")
+                {
+                    return;
+                }
+
+                this.ShowProductByTitle(productsMenu.value);
+            } while (true);
+        }
+
+        private void ShowProductByTitle(string productTitle)
+        {
+            Console.Clear();
+
+            Product product = this.GetProductByTitle(productTitle);
+
+            if (product == null)
+            {
+                return;
+            }
+
+            Menu productMenu = new Menu("Produkt Menü", this.user);
+            productMenu.addMenuItem("In den Einkaufswagen");
+            productMenu.addMenuItem("Zurück");
+            productMenu.MenuText = this.GetProductMenuText(product);
+            productMenu.Prefix = "-";
+            productMenu.WhiteSpaceBeforePrefix = true;
+            productMenu.mark = MenuMark.Prefix;
+            productMenu.ShowMenu();
+            
+            if (productMenu.value == "Zurück")
+            {
+                return;
+            }
+
+            this.AddProductToShoppingCart(product, this.GetActualShoppingCart());
+        }
+
+        private ShoppingCart GetActualShoppingCart()
+        {
+            return this.shoppingCartContext.FindActualCartForUser(this.user);
+        }
+
+        private Product GetProductByTitle(string productTitle)
+        {
+            Product product;
+
+            using (var repository = new ProductContext())
+            {
+                product = repository.FindByTitle(productTitle);
+            }
+
+            return product;
+        }
+
+        private string GetProductMenuText(Product product)
+        {
+            string menuText = String.Format("{0, 2}{1, -20}: {2}\n", "", "Produkt Id", product.id);
+            menuText += String.Format("{0, 2}{1, -20}: {2}\n", "", "Titel", product.title);
+            menuText += String.Format("{0, 2}{1, -20}: {2}\n", "", "Category", product.category.name);
+            menuText += String.Format("{0, 2}{1, -20}: {2}\n", "", "Format", product.format.name);
+            menuText += String.Format("{0, 2}{1, -20}: {2}\n", "", "Autor", product.author.name);
+            menuText += String.Format("{0, 2}{1, -20}: {2}\n", "", "EAN", product.ean);
+            menuText += String.Format("{0, 2}{1, -20}: {2}\n", "", "Publisher", product.publisher.name);
+            menuText += String.Format("{0, 2}{1, -20}: {2}\n", "", "Preis", product.price);
+
+            return menuText;
         }
 
         private List<Product> GetAllProducts()

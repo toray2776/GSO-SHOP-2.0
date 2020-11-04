@@ -23,5 +23,7 @@ namespace Bedienungshilfe.Entity
 
         [Column("user_name", TypeName = "varchar(255)")]
         public string userName { get; set; }
+
+        public List<ShoppingCart>shoppingCarts { get; set; }
     }
 }

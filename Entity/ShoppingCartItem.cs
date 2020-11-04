@@ -23,7 +23,7 @@ namespace Bedienungshilfe.Entity
 
         internal void IncreaseAmount(int amount)
         {
-            throw new NotImplementedException();
+            this.amount += amount;
         }
     }
 }

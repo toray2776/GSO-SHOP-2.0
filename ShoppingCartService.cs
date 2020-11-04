@@ -1,4 +1,5 @@
 ﻿using Bedienungshilfe.Entity;
+using Bedienungshilfe.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,12 @@ namespace Bedienungshilfe
     public class ShoppingCartService
     {
         private ShoppingCart shoppingCart;
+        private ProductContext productContext;
 
         public ShoppingCartService(ShoppingCart shoppingCart)
         {
             this.shoppingCart = shoppingCart;
+            this.productContext = new ProductContext();
         }
 
         public bool AddProductToShoppingCart(Product product, int amount)
@@ -53,7 +56,7 @@ namespace Bedienungshilfe
 
             for (int i = 0; i < shoppingCartItems.Count; i++)
             {
-                if (shoppingCartItems[i].product == product)
+                if (shoppingCartItems[i].product.id == product.id)
                 {
                     return shoppingCartItems[i];
                 }
@@ -66,9 +69,14 @@ namespace Bedienungshilfe
         {
             List<ShoppingCartItem> shoppingCartItems = shoppingCart.shoppingCartItems;
 
+            if (shoppingCartItems == null)
+            {
+                return false;
+            }
+
             for(int i = 0; i < shoppingCartItems.Count; i++)
             {
-                if (shoppingCartItems[i].product == product)
+                if (shoppingCartItems[i].product.id == product.id)
                 {
                     return true;
                 }
