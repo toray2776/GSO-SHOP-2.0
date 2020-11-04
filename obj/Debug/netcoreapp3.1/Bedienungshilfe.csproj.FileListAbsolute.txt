@@ -60,5 +60,6 @@ C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\bin\Debug\netcoreapp3.1\runtim
 C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\obj\Debug\netcoreapp3.1\Bedienungshilfe.csproj.CoreCompileInputs.cache
 C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\obj\Debug\netcoreapp3.1\Bedienungshilfe.csproj.CopyComplete
+C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll
+C:\Users\Andreas.Daehne\Source\Repos\GSO-SHOP-2.0\obj\Debug\netcoreapp3.1\Bedienungshilfe.csproj.CoreCompileInputs.cache

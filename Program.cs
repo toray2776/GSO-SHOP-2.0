@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
+using BCrypt.Net;
+using Bedienungshilfe.Entity;
 
 namespace Bedienungshilfe
 {
@@ -7,6 +10,10 @@ namespace Bedienungshilfe
     {
         static void Main(string[] args)
         {
+            LogInArea logInArea = new LogInArea();
+            User user;
+            Dashboard dashboard;
+
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
 
@@ -15,7 +22,25 @@ namespace Bedienungshilfe
                 db.Database.EnsureCreated();
 
                 db.SaveChanges();
+
+                //user = new User();
+                //user.firstName = "Max";
+                //user.lastName = "Mustermann";
+                //user.userName = "Mustermann";
+                //ShoppingCart shoppingCart = new ShoppingCart();
+                //List<ShoppingCart> shoppingCarts = new List<ShoppingCart>();
+                //shoppingCarts.Add(shoppingCart);
+                //user.shoppingCarts = shoppingCarts;
+                //db.Add(shoppingCart);
+                //user.password = BCrypt.Net.BCrypt.HashPassword("Mustermann");
+                //db.Add(user);
+                //db.SaveChanges();
             }
+
+            user = logInArea.Login();
+
+            dashboard = new Dashboard(user);
+            dashboard.Show();
 
             //for testing
             bool loggedin = true;
@@ -56,25 +81,25 @@ namespace Bedienungshilfe
                 }
             } while (!loggedin);
 
-            Menu menu = new Menu("Main Menü");
-            menu.addMenuItem("Shop132");
-            menu.addMenuItem("Sho123p123");
-            menu.addMenuItem("Shop1231132");
-            menu.addMenuItem("Sho312fsp123");
-            menu.addMenuItem("S13123hop132");
-            menu.addMenuItem("Shosdfsdfp123");
-            menu.addMenuItem("Shosdfsdfp132");
-            menu.addMenuItem("Shosdfp123");
-            menu.addMenuItem("Shsdfsdfop132");
-            menu.addMenuItem("Shosdfsdfp123");
-            menu.addMenuItem("Shosdfsdfp132");
-            menu.MenuText = "Das ist der Menü Text";
-            menu.Prefix = "-";
-            menu.WhiteSpaceBeforePrefix = true;
-            menu.mark = MenuMark.Prefix;
-            menu.ShowMenu();
-            Console.WriteLine(menu.value);
-            Console.ReadLine();
+            //Menu menu = new Menu("Main Menü");
+            //menu.addMenuItem("Shop132");
+            //menu.addMenuItem("Sho123p123");
+            //menu.addMenuItem("Shop1231132");
+            //menu.addMenuItem("Sho312fsp123");
+            //menu.addMenuItem("S13123hop132");
+            //menu.addMenuItem("Shosdfsdfp123");
+            //menu.addMenuItem("Shosdfsdfp132");
+            //menu.addMenuItem("Shosdfp123");
+            //menu.addMenuItem("Shsdfsdfop132");
+            //menu.addMenuItem("Shosdfsdfp123");
+            //menu.addMenuItem("Shosdfsdfp132");
+            //menu.MenuText = "Das ist der Menü Text";
+            //menu.Prefix = "-";
+            //menu.WhiteSpaceBeforePrefix = true;
+            //menu.mark = MenuMark.Prefix;
+            //menu.ShowMenu();
+            //Console.WriteLine(menu.value);
+            //Console.ReadLine();
         }
     }
 }

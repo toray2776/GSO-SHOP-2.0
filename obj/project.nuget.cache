@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XTtz7cXYa1vpRp+DeBZXTmRQFdGVzDAp6TvwJsMWH2tpmkIjgWgXm1gUWRkpGi8OTSaDihckNssP7ut5r7f5eA==",
+  "dgSpecHash": "m77/zjJg7mrs/ICtYVrea+GcKbPf6uDgyf4UmJzrsuapZK5B+TMHlfWW4k5foGZ9lLWgetNocoV8U0H9Xt1sAA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Andreas.Daehne\\Source\\Repos\\GSO-SHOP-2.0\\Bedienungshilfe.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Andreas.Daehne\\.nuget\\packages\\bcrypt.net-next\\4.0.0\\bcrypt.net-next.4.0.0.nupkg.sha512",
     "C:\\Users\\Andreas.Daehne\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Andreas.Daehne\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Andreas.Daehne\\.nuget\\packages\\microsoft.data.sqlite.core\\3.1.8\\microsoft.data.sqlite.core.3.1.8.nupkg.sha512",

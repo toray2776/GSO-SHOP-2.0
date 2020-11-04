@@ -18,7 +18,13 @@ namespace Bedienungshilfe.Repository
 
         public Product findById(int id)
         {
-            Product product = this.Products.Find(id);
+            Product product = this.Products
+                .Include(product => product.author)
+                .Include(product => product.publisher)
+                .Include(product => product.format)
+                .Include(product => product.category)
+                .Where(p => p.id == id)
+                .Single();
 
             return product;
         }
@@ -33,6 +39,18 @@ namespace Bedienungshilfe.Repository
                 .ToList();
 
             return products;
+        }
+
+        public Product FindByTitle(string productTitle)
+        {
+            Product product = this.Products
+                .Include(product => product.author)
+                .Include(product => product.publisher)
+                .Include(product => product.format)
+                .Include(product => product.category)
+                .Single(product => product.title == productTitle);
+
+            return product;
         }
     }
 }

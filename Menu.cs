@@ -1,4 +1,6 @@
 ﻿using System;
+using Bedienungshilfe.Entity;
+
 namespace Bedienungshilfe
 {
     public enum MenuMark
@@ -34,13 +36,13 @@ namespace Bedienungshilfe
         public string MenuText;
         public string Prefix = "";
         public string ItemSeperator = "";
-        public string MenuTitle { get; private set; }
+        public string MenuTitle { get; protected set; }
         public object[][] MenuItems;
-        public string value { get; private set; }
+        public string value { get; protected set; }
         public int pageRows = 6;
         public int ItemColumns = 4;
         public int paddingLeftRight = 3;
-        public int Pages { get; private set; }
+        public int Pages { get; protected set; }
         public int MaxHeight = 0;
         public int MaxWidth = 0;
         public bool WhiteSpaceBeforePrefix = true;
@@ -52,19 +54,21 @@ namespace Bedienungshilfe
         public ConsoleColor markBackGroundColor = ConsoleColor.Blue;
         public ConsoleColor markTextColor = ConsoleColor.White;
 
-        private int lastColumnwidth = 0;
-        private int page = 1;
-        private int index;
-        private int prefixlenght;
-        private bool isPrefix = false;
+        protected int lastColumnwidth = 0;
+        protected int page = 1;
+        protected int index;
+        protected int prefixlenght;
+        protected bool isPrefix = false;
+        public User user { get; protected set; }
 
         //TODO: - Seperator
         //      - Doku schreiben
         //      - Max Height Max Width
 
-        public Menu(string _title)
+        public Menu(string _title, User user)
         {
             MenuTitle = _title;
+            this.user = user;
             value = null;
         }
 
@@ -185,7 +189,7 @@ namespace Bedienungshilfe
                     _lineCount = 0;
                     if (i < MenuItems.Length)
                     {
-                        Console.SetCursorPosition(_leftvalue, 4 + _count);
+                        Console.SetCursorPosition(_leftvalue, 10 + _count);
                         if(isPrefix)
                         {
                             if(i == index) {
@@ -221,7 +225,7 @@ namespace Bedienungshilfe
                                 Console.BackgroundColor = BackGroundColor;
                                 Console.ForegroundColor = TextColor;
                             }
-                            Console.SetCursorPosition(_leftvalue + (_columncount * lastColumnwidth), 4 + _count + _lineCount);
+                            Console.SetCursorPosition(_leftvalue + (_columncount * lastColumnwidth), 10 + _count + _lineCount);
                             Console.Write(CheckItemWidth((string)MenuItems[i][j]));
                             if (j == 1 && mark == MenuMark.firstColumn)
                             {
@@ -243,7 +247,7 @@ namespace Bedienungshilfe
                 //titlebar
                 if(titlebar.state == States.Default)
                 {
-                    titlebar.data = new string[3] { MenuTitle, $"Page {page}/{Pages}", $"Vorname Nachname" };
+                    titlebar.data = new string[3] { MenuTitle, $"Page {page}/{Pages}", $"{user.firstName} {user.lastName}" };
                 }
                 titlebar.Show();
 
@@ -274,14 +278,14 @@ namespace Bedienungshilfe
             value = (string)MenuItems[index][0];
         }
 
-        private void UpdatepageNumber()
+        protected void UpdatepageNumber()
         {
             int _left;
             int _pages = Math.DivRem(MenuItems.Length, pageRows, out _left);
             Pages = _left == 0 ? _pages : _pages + 1;
         }
 
-        private bool CheckItemColumnWidth()
+        protected bool CheckItemColumnWidth()
         {
             int _ColumnWidth;
             _ColumnWidth = (Console.WindowWidth - (paddingLeftRight * 2)) / ItemColumns;
@@ -293,7 +297,7 @@ namespace Bedienungshilfe
             return false;
         }
 
-        private string CheckItemWidth(string _item)
+        protected string CheckItemWidth(string _item)
         {
             if(_item.Length <= lastColumnwidth)
             {
@@ -307,12 +311,12 @@ namespace Bedienungshilfe
             public bool enabled = true;
             public int padding = 2;
             public int height = 0;
-            public int Columns { get; private set; }
+            public int Columns { get; protected set; }
             public string[] data { get; set; }
             public Location Location = Location.Bottom;
             public States state = States.Default;
 
-            private int lastColumnWidth;
+            protected int lastColumnWidth;
 
             public Titlebar()
             {
@@ -371,7 +375,7 @@ namespace Bedienungshilfe
                 }
             }
 
-            private string CheckString(string _check)
+            protected string CheckString(string _check)
             {
                 if(_check.Length <= lastColumnWidth)
                 {
@@ -380,7 +384,7 @@ namespace Bedienungshilfe
                 return _check.Substring(0, lastColumnWidth - 3) + "...";
             }
 
-            private void SetHeight()
+            protected void SetHeight()
             {
                 height = padding * 2 + 1;
             }
